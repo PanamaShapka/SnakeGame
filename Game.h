@@ -3,7 +3,7 @@
 #include "SFML-2.6.1/include/SFML/Audio/Sound.hpp"
 #include "SFML-2.6.1/include/SFML/Audio/SoundBuffer.hpp"
 
-#include "MathForGame.h"
+#include "Math.h"
 #include "Snake.h"
 #include "Box.h"
 #include "Apple.h"

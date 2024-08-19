@@ -2,7 +2,7 @@
 #include "SFML-2.6.1/include/SFML/Graphics.hpp"
 #include <cassert>
 
-#include "MathForSprites.h"
+#include "Math.h"
 
 namespace SnakeGame {
 

@@ -146,8 +146,7 @@
     <ClCompile Include="Leaderboard.cpp" />
     <ClCompile Include="LeaderboardMenu.cpp" />
     <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="MathForGame.cpp" />
-    <ClCompile Include="MathForSprites.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="SettingsMenu.cpp" />
     <ClCompile Include="Snake.cpp" />
@@ -165,8 +164,7 @@
     <ClInclude Include="Leaderboard.h" />
     <ClInclude Include="LeaderboardMenu.h" />
     <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="MathForGame.h" />
-    <ClInclude Include="MathForSprites.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="SettingsMenu.h" />
     <ClInclude Include="Snake.h" />

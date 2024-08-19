@@ -17,12 +17,14 @@ namespace SnakeGame {
 		assert(game.loseSoundBuffer.loadFromFile(RESOURCES_PATH + "\\Maodin204__Lose.wav"));
 		assert(game.enterSoundBuffer.loadFromFile(RESOURCES_PATH + "\\Theevilsocks__menu-hover.wav"));
 
+		// Init sounds
 		game.pressKeySound.setBuffer(game.pressKeySoundBuffer);
 		game.snakeHitSound.setBuffer(game.snakeHitSoundBuffer);
 		game.backgroundMusic.setBuffer(game.backgroundMusicSoundBuffer);
 		game.loseSound.setBuffer(game.loseSoundBuffer);
 		game.enterSound.setBuffer(game.enterSoundBuffer);
 
+		// Init score
 		game.scoreText.setFont(game.font);
 		game.scoreText.setCharacterSize(40);
 		game.scoreText.setFillColor(sf::Color::White);
@@ -35,6 +37,7 @@ namespace SnakeGame {
 		game.scoreNumberText.setString("0");
 		game.scoreNumberText.setPosition(975.f, game.scoreText.getGlobalBounds().height + 15.f);
 
+		// Init background
 		game.background.setSize(sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 		game.background.setFillColor(sf::Color::Black);
 		game.background.setPosition(0.f, 0.f);
@@ -81,6 +84,7 @@ namespace SnakeGame {
 			UpdateGrid(game.grid);
 		}
 
+		// Set score
 		game.score = 0;
 		game.scoreNumberText.setString(std::to_string(game.score));
 
