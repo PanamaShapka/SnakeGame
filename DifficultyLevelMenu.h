@@ -31,7 +31,6 @@ namespace SnakeGame {
 	void InitDifficultyLevelMenu(DifficultyLevelMenu& difficultyLevelMenu, const Game& game);
 	void UpdateCheckMark(DifficultyLevelMenu& difficultyLevelMenu);
 	void UpdateDifficultyLevelMenuButtonsColor(DifficultyLevelMenu& difficultyLevelMenu);
-	void UpdateDifficultyLevelMenuButtonsColor(DifficultyLevelMenu& difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton lastButton);
 	void UpdateDifficultyLevelMenu(DifficultyLevelMenu& difficultyLevelMenu, Game& game);
 	void DrawDifficultyLevelMenu(DifficultyLevelMenu& difficultyLevelMenu, sf::RenderWindow& window);
 }

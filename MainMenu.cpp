@@ -56,41 +56,14 @@ namespace SnakeGame {
 
 	void UpdateMainMenuButtonsColor(MainMenu& mainMenu)
 	{
-		switch (mainMenu.currentButton)
-		{
-		case MainMenu::MainMenuButton::START_GAME_BUTTON:
-		{
-			mainMenu.startGameText.setFillColor(sf::Color::Green);
+		// Set white color to all buttons text
+		mainMenu.startGameText.setFillColor(sf::Color::White);
+		mainMenu.difficultyLevelText.setFillColor(sf::Color::White);
+		mainMenu.leaderboardText.setFillColor(sf::Color::White);
+		mainMenu.settingsText.setFillColor(sf::Color::White);
+		mainMenu.exitGameText.setFillColor(sf::Color::White);
 
-			break;
-		}
-		case MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON:
-		{
-			mainMenu.difficultyLevelText.setFillColor(sf::Color::Green);
-			break;
-		}
-		case MainMenu::MainMenuButton::LEADERBOARD_BUTTON:
-		{
-			mainMenu.leaderboardText.setFillColor(sf::Color::Green);
-			break;
-		}
-		case MainMenu::MainMenuButton::SETTINGS_BUTTON:
-		{
-			mainMenu.settingsText.setFillColor(sf::Color::Green);
-			break;
-		}
-		case MainMenu::MainMenuButton::EXIT_GAME_BUTTON:
-		{
-			mainMenu.exitGameText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-	}
-
-	void UpdateMainMenuButtonsColor(MainMenu& mainMenu, MainMenu::MainMenuButton lastButton)
-	{
+		// Set green color to the current button
 		switch (mainMenu.currentButton)
 		{
 		case MainMenu::MainMenuButton::START_GAME_BUTTON:
@@ -116,37 +89,6 @@ namespace SnakeGame {
 		case MainMenu::MainMenuButton::EXIT_GAME_BUTTON:
 		{
 			mainMenu.exitGameText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-
-		switch (lastButton)
-		{
-		case MainMenu::MainMenuButton::START_GAME_BUTTON:
-		{
-			mainMenu.startGameText.setFillColor(sf::Color::White);
-			break;
-		}
-		case MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON:
-		{
-			mainMenu.difficultyLevelText.setFillColor(sf::Color::White);
-			break;
-		}
-		case MainMenu::MainMenuButton::LEADERBOARD_BUTTON:
-		{
-			mainMenu.leaderboardText.setFillColor(sf::Color::White);
-			break;
-		}
-		case MainMenu::MainMenuButton::SETTINGS_BUTTON:
-		{
-			mainMenu.settingsText.setFillColor(sf::Color::White);
-			break;
-		}
-		case MainMenu::MainMenuButton::EXIT_GAME_BUTTON:
-		{
-			mainMenu.exitGameText.setFillColor(sf::Color::White);
 			break;
 		}
 		default:
@@ -161,83 +103,81 @@ namespace SnakeGame {
 		{
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 				if (!mainMenu.isControlKeyPressed) {
+
+					// Set current button
 					switch (mainMenu.currentButton)
 					{
 					case MainMenu::MainMenuButton::START_GAME_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::START_GAME_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::LEADERBOARD_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::LEADERBOARD_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::SETTINGS_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::LEADERBOARD_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::SETTINGS_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::EXIT_GAME_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::SETTINGS_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::EXIT_GAME_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::START_GAME_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::EXIT_GAME_BUTTON);
 						break;
 					}
 					default:
 						break;
 					}
 					mainMenu.isControlKeyPressed = true;
+
+					UpdateMainMenuButtonsColor(mainMenu);
 					PlayPressKeySound(game);
 				}
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 				if (!mainMenu.isControlKeyPressed) {
+
+					// Set current button
 					switch (mainMenu.currentButton)
 					{
 					case MainMenu::MainMenuButton::START_GAME_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::EXIT_GAME_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::START_GAME_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::START_GAME_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::LEADERBOARD_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::DIFFICULTY_LEVEL_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::LEADERBOARD_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::SETTINGS_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::LEADERBOARD_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::SETTINGS_BUTTON);
 						break;
 					}
 					case MainMenu::MainMenuButton::EXIT_GAME_BUTTON:
 					{
 						mainMenu.currentButton = MainMenu::MainMenuButton::SETTINGS_BUTTON;
-						UpdateMainMenuButtonsColor(mainMenu, MainMenu::MainMenuButton::EXIT_GAME_BUTTON);
 						break;
 					}
 					default:
 						break;
 					}
 					mainMenu.isControlKeyPressed = true;
+
+					UpdateMainMenuButtonsColor(mainMenu);
 					PlayPressKeySound(game);
 				}
 			}
@@ -336,7 +276,5 @@ namespace SnakeGame {
 		default:
 			break;
 		}
-		
-
 	}
 }

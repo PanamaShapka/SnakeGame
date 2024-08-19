@@ -39,6 +39,11 @@ namespace SnakeGame {
 
 	void UpdateSettingsMenuButtonsColor(SettingsMenu& settingsMenu)
 	{
+		// Set white color to all buttons text
+		settingsMenu.musicText.setFillColor(sf::Color::White);
+		settingsMenu.sfxText.setFillColor(sf::Color::White);
+
+		// Set green color to the current button
 		switch (settingsMenu.currentButton)
 		{
 		case SettingsMenu::SettingsMenuButton::MUSIC_BUTTON:
@@ -49,41 +54,6 @@ namespace SnakeGame {
 		case SettingsMenu::SettingsMenuButton::SFX_BUTTON:
 		{
 			settingsMenu.sfxText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-	}
-
-	void UpdateSettingsMenuButtonsColor(SettingsMenu& settingsMenu, SettingsMenu::SettingsMenuButton lastButton)
-	{
-		switch (settingsMenu.currentButton)
-		{
-		case SettingsMenu::SettingsMenuButton::MUSIC_BUTTON:
-		{
-			settingsMenu.musicText.setFillColor(sf::Color::Green);
-			break;
-		}
-		case SettingsMenu::SettingsMenuButton::SFX_BUTTON:
-		{
-			settingsMenu.sfxText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-
-		switch (lastButton)
-		{
-		case SettingsMenu::SettingsMenuButton::MUSIC_BUTTON:
-		{
-			settingsMenu.musicText.setFillColor(sf::Color::White);
-			break;
-		}
-		case SettingsMenu::SettingsMenuButton::SFX_BUTTON:
-		{
-			settingsMenu.sfxText.setFillColor(sf::Color::White);
 			break;
 		}
 		default:
@@ -95,49 +65,53 @@ namespace SnakeGame {
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (!settingsMenu.isControlKeyPressed) {
+
+				// Set current button
 				switch (settingsMenu.currentButton)
 				{
 				case SettingsMenu::SettingsMenuButton::MUSIC_BUTTON:
 				{
 					settingsMenu.currentButton = SettingsMenu::SettingsMenuButton::SFX_BUTTON;
-					UpdateSettingsMenuButtonsColor(settingsMenu, SettingsMenu::SettingsMenuButton::MUSIC_BUTTON);
 					break;
 				}
 				case SettingsMenu::SettingsMenuButton::SFX_BUTTON:
 				{
 					settingsMenu.currentButton = SettingsMenu::SettingsMenuButton::MUSIC_BUTTON;
-					UpdateSettingsMenuButtonsColor(settingsMenu, SettingsMenu::SettingsMenuButton::SFX_BUTTON);
 					break;
 				}
 				default:
 					break;
 				}
 				settingsMenu.isControlKeyPressed = true;
+
+				UpdateSettingsMenuButtonsColor(settingsMenu);
 				PlayPressKeySound(game);
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!settingsMenu.isControlKeyPressed) {
+
+				// Set current button
 				switch (settingsMenu.currentButton)
 				{
 				case SettingsMenu::SettingsMenuButton::MUSIC_BUTTON:
 				{
 					settingsMenu.currentButton = SettingsMenu::SettingsMenuButton::SFX_BUTTON;
-					UpdateSettingsMenuButtonsColor(settingsMenu, SettingsMenu::SettingsMenuButton::MUSIC_BUTTON);
 					break;
 				}
 				case SettingsMenu::SettingsMenuButton::SFX_BUTTON:
 				{
 					settingsMenu.currentButton = SettingsMenu::SettingsMenuButton::MUSIC_BUTTON;
-					UpdateSettingsMenuButtonsColor(settingsMenu, SettingsMenu::SettingsMenuButton::SFX_BUTTON);
 					break;
 				}
 				default:
 					break;
 				}
 				settingsMenu.isControlKeyPressed = true;
+
+				UpdateSettingsMenuButtonsColor(settingsMenu);
 				PlayPressKeySound(game);
-			}
+			}       
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
 			if (!settingsMenu.isControlKeyPressed) {
@@ -182,7 +156,7 @@ namespace SnakeGame {
 		}
 	}
 
-	void DrawSettingsMenu(SettingsMenu& settingsMenu, const Game& game, sf::RenderWindow& window)
+	void DrawSettingsMenu(SettingsMenu& settingsMenu, const Game& game, sf::RenderWindow& window) 
 	{
 		window.draw(settingsMenu.settingsText);
 		window.draw(settingsMenu.musicText);

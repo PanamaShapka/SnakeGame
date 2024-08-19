@@ -23,7 +23,6 @@ namespace SnakeGame {
 	void InitPauseMenu(PauseMenu& pauseMenu, const Game& game);
 	void SetStartPauseMenuState(PauseMenu& pauseMenu);
 	void UpdatePauseMenuButtonsColor(PauseMenu& pauseMenu);
-	void UpdatePauseMenuButtonsColor(PauseMenu& pauseMenu, PauseMenu::PauseMenuButton lastButton);
 	void UpdatePauseMenu(PauseMenu& pauseMenu, Game& game);
 	void DrawPauseMenu(PauseMenu& pauseMenu, sf::RenderWindow& window);
 }

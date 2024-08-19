@@ -90,6 +90,14 @@ namespace SnakeGame {
 
 	void UpdateDifficultyLevelMenuButtonsColor(DifficultyLevelMenu& difficultyLevelMenu)
 	{
+		// Set white color to all buttons text
+		difficultyLevelMenu.difficultyLevel_1Text.setFillColor(sf::Color::White);
+		difficultyLevelMenu.difficultyLevel_2Text.setFillColor(sf::Color::White);
+		difficultyLevelMenu.difficultyLevel_3Text.setFillColor(sf::Color::White);
+		difficultyLevelMenu.difficultyLevel_4Text.setFillColor(sf::Color::White);
+		difficultyLevelMenu.difficultyLevel_5Text.setFillColor(sf::Color::White);
+
+		// Set green color to the current button
 		switch (difficultyLevelMenu.currentButton)
 		{
 		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1:
@@ -115,71 +123,6 @@ namespace SnakeGame {
 		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5:
 		{
 			difficultyLevelMenu.difficultyLevel_5Text.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-	}
-
-	void UpdateDifficultyLevelMenuButtonsColor(DifficultyLevelMenu& difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton lastButton)
-	{
-		switch (difficultyLevelMenu.currentButton)
-		{
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1:
-		{
-			difficultyLevelMenu.difficultyLevel_1Text.setFillColor(sf::Color::Green);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2:
-		{
-			difficultyLevelMenu.difficultyLevel_2Text.setFillColor(sf::Color::Green);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3:
-		{
-			difficultyLevelMenu.difficultyLevel_3Text.setFillColor(sf::Color::Green);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4:
-		{
-			difficultyLevelMenu.difficultyLevel_4Text.setFillColor(sf::Color::Green);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5:
-		{
-			difficultyLevelMenu.difficultyLevel_5Text.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-
-		switch (lastButton)
-		{
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1:
-		{
-			difficultyLevelMenu.difficultyLevel_1Text.setFillColor(sf::Color::White);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2:
-		{
-			difficultyLevelMenu.difficultyLevel_2Text.setFillColor(sf::Color::White);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3:
-		{
-			difficultyLevelMenu.difficultyLevel_3Text.setFillColor(sf::Color::White);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4:
-		{
-			difficultyLevelMenu.difficultyLevel_4Text.setFillColor(sf::Color::White);
-			break;
-		}
-		case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5:
-		{
-			difficultyLevelMenu.difficultyLevel_5Text.setFillColor(sf::Color::White);
 			break;
 		}
 		default:
@@ -191,88 +134,88 @@ namespace SnakeGame {
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (!difficultyLevelMenu.isControlKeyPressed) {
+
+				// Set current button
 				switch (difficultyLevelMenu.currentButton)
 				{
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5);
 					break;
 				}
 				default:
 					break;
 				}
 				difficultyLevelMenu.isControlKeyPressed = true;
+
+				UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu);
 				PlayPressKeySound(game);
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!difficultyLevelMenu.isControlKeyPressed) {
+
+				// Set current button
 				switch (difficultyLevelMenu.currentButton)
 				{
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2:
 				{
-					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2);
+					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1;	
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_2;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_3;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4);
 					break;
 				}
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5:
 				{
 					difficultyLevelMenu.currentButton = DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_4;
-					UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu, DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_5);
 					break;
 				}
 				default:
 					break;
 				}
 				difficultyLevelMenu.isControlKeyPressed = true;
+
+				UpdateDifficultyLevelMenuButtonsColor(difficultyLevelMenu);
 				PlayPressKeySound(game);
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
 			if (!difficultyLevelMenu.isControlKeyPressed) {
+
+				// Update game difficulty
 				switch (difficultyLevelMenu.currentButton)
 				{
 				case DifficultyLevelMenu::SettingsMenuButton::DIFFICULTY_LEVEL_1:

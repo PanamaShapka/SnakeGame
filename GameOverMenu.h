@@ -63,14 +63,12 @@ namespace SnakeGame {
 	void UpdateGameOverMenuLeaderboard(GameOverMenu& gameOverMenu, const Game& game);
 	void UpdateGameOverMenuStates(GameOverMenu& gameOverMenu, const Game& game);
 	void UpdateGameOverMenuButtonsColor(GameOverMenu& gameOverMenu);
-	void UpdateGameOverMenuButtonsColor(GameOverMenu& gameOverMenu, GameOverMenu::GameOverMenuButton lastButton);
 	void UpdateGameOverMenu(GameOverMenu& gameOverMenu, Game& game);
 	void DrawGameOverMenu(GameOverMenu& gameOverMenu, sf::RenderWindow& window);
 
 	void InitNewRecordMenu(NewRecordMenu& newRecordMenu, const Game& game);
 	void SetStartNewRecordMenuState(NewRecordMenu& newRecordMenu, const Game& game);
 	void UpdateNewRecordMenuButtonsColor(NewRecordMenu& newRecordMenu);
-	void UpdateNewRecordMenuButtonsColor(NewRecordMenu& newRecordMenu, NewRecordMenu::NewRecordMenuButton lastButton);
 	void UpdateNewRecordMenu(NewRecordMenu& newRecordMenu, Game& game);
 	void DrawNewRecordMenu(GameOverMenu& gameOverMenu, sf::RenderWindow& window);
 

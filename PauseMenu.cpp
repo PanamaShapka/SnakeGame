@@ -43,27 +43,11 @@ namespace SnakeGame {
 
 	void UpdatePauseMenuButtonsColor(PauseMenu& pauseMenu)
 	{
-		switch (pauseMenu.currentButton)
-		{
-		case PauseMenu::PauseMenuButton::CONTINUE_BUTTON:
-		{
-			pauseMenu.continueText.setFillColor(sf::Color::Green);
-			pauseMenu.exitToMenuText.setFillColor(sf::Color::White);
-			break;
-		}
-		case PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON:
-		{
-			pauseMenu.exitToMenuText.setFillColor(sf::Color::Green);
-			pauseMenu.continueText.setFillColor(sf::Color::White);
-			break;
-		}
-		default:
-			break;
-		}
-	}
+		// Set white color to all buttons text
+		pauseMenu.continueText.setFillColor(sf::Color::White);
+		pauseMenu.exitToMenuText.setFillColor(sf::Color::White);
 
-	void UpdatePauseMenuButtonsColor(PauseMenu& pauseMenu, PauseMenu::PauseMenuButton lastButton)
-	{
+		// Set green color to the current button
 		switch (pauseMenu.currentButton)
 		{
 		case PauseMenu::PauseMenuButton::CONTINUE_BUTTON:
@@ -74,22 +58,6 @@ namespace SnakeGame {
 		case PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON:
 		{
 			pauseMenu.exitToMenuText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-
-		switch (lastButton)
-		{
-		case PauseMenu::PauseMenuButton::CONTINUE_BUTTON:
-		{
-			pauseMenu.continueText.setFillColor(sf::Color::White);
-			break;
-		}
-		case PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON:
-		{
-			pauseMenu.exitToMenuText.setFillColor(sf::Color::White);
 			break;
 		}
 		default:
@@ -101,47 +69,51 @@ namespace SnakeGame {
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (!pauseMenu.isKeyPressed) {
+
+				// Set current button
 				switch (pauseMenu.currentButton)
 				{
 				case  PauseMenu::PauseMenuButton::CONTINUE_BUTTON:
 				{
 					pauseMenu.currentButton = PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON;
-					UpdatePauseMenuButtonsColor(pauseMenu, PauseMenu::PauseMenuButton::CONTINUE_BUTTON);
 					break;
 				}
 				case  PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON:
 				{
 					pauseMenu.currentButton = PauseMenu::PauseMenuButton::CONTINUE_BUTTON;
-					UpdatePauseMenuButtonsColor(pauseMenu, PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON);
 					break;
 				}
 				default:
 					break;
 				}
 				pauseMenu.isKeyPressed = true;
+
+				UpdatePauseMenuButtonsColor(pauseMenu);
 				PlayPressKeySound(game);
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!pauseMenu.isKeyPressed) {
+
+				// Set current button
 				switch (pauseMenu.currentButton)
 				{
 				case  PauseMenu::PauseMenuButton::CONTINUE_BUTTON:
 				{
 					pauseMenu.currentButton = PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON;
-					UpdatePauseMenuButtonsColor(pauseMenu, PauseMenu::PauseMenuButton::CONTINUE_BUTTON);
 					break;
 				}
 				case  PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON:
 				{
 					pauseMenu.currentButton = PauseMenu::PauseMenuButton::CONTINUE_BUTTON;
-					UpdatePauseMenuButtonsColor(pauseMenu, PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON);
 					break;
 				}
 				default:
 					break;
 				}
 				pauseMenu.isKeyPressed = true;
+
+				UpdatePauseMenuButtonsColor(pauseMenu);
 				PlayPressKeySound(game);
 			}
 		}

@@ -87,27 +87,11 @@ namespace SnakeGame {
 
 	void UpdateGameOverMenuButtonsColor(GameOverMenu& gameOverMenu)
 	{
-		switch (gameOverMenu.currentButton)
-		{
-		case GameOverMenu::GameOverMenuButton::RESTART_BUTTON:
-		{
-			gameOverMenu.restartText.setFillColor(sf::Color::Green);
-			gameOverMenu.exitText.setFillColor(sf::Color::White);
-			break;
-		}
-		case GameOverMenu::GameOverMenuButton::EXIT_BUTTON:
-		{
-			gameOverMenu.exitText.setFillColor(sf::Color::Green);
-			gameOverMenu.restartText.setFillColor(sf::Color::White);
-			break;
-		}
-		default:
-			break;
-		}
-	}
+		// Set white color to all buttons text
+		gameOverMenu.restartText.setFillColor(sf::Color::White);
+		gameOverMenu.exitText.setFillColor(sf::Color::White);
 
-	void UpdateGameOverMenuButtonsColor(GameOverMenu& gameOverMenu, GameOverMenu::GameOverMenuButton lastButton)
-	{
+		// Set green color to the current button
 		switch (gameOverMenu.currentButton)
 		{
 		case GameOverMenu::GameOverMenuButton::RESTART_BUTTON:
@@ -118,22 +102,6 @@ namespace SnakeGame {
 		case GameOverMenu::GameOverMenuButton::EXIT_BUTTON:
 		{
 			gameOverMenu.exitText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-
-		switch (lastButton)
-		{
-		case GameOverMenu::GameOverMenuButton::RESTART_BUTTON:
-		{
-			gameOverMenu.restartText.setFillColor(sf::Color::White);
-			break;
-		}
-		case GameOverMenu::GameOverMenuButton::EXIT_BUTTON:
-		{
-			gameOverMenu.exitText.setFillColor(sf::Color::White);
 			break;
 		}
 		default:
@@ -149,47 +117,51 @@ namespace SnakeGame {
 		{
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 				if (!gameOverMenu.isControlKeyPressed) {
+
+					// Set current button
 					switch (gameOverMenu.currentButton)
 					{
 					case GameOverMenu::GameOverMenuButton::RESTART_BUTTON:
 					{
 						gameOverMenu.currentButton = GameOverMenu::GameOverMenuButton::EXIT_BUTTON;
-						UpdateGameOverMenuButtonsColor(gameOverMenu, GameOverMenu::GameOverMenuButton::RESTART_BUTTON);
 						break;
 					}
 					case GameOverMenu::GameOverMenuButton::EXIT_BUTTON:
 					{
 						gameOverMenu.currentButton = GameOverMenu::GameOverMenuButton::RESTART_BUTTON;
-						UpdateGameOverMenuButtonsColor(gameOverMenu, GameOverMenu::GameOverMenuButton::EXIT_BUTTON);
 						break;
 					}
 					default:
 						break;
 					}
 					gameOverMenu.isControlKeyPressed = true;
+
+					UpdateGameOverMenuButtonsColor(gameOverMenu);
 					PlayPressKeySound(game);
 				}
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 				if (!gameOverMenu.isControlKeyPressed) {
+
+					// Set current button
 					switch (gameOverMenu.currentButton)
 					{
 					case GameOverMenu::GameOverMenuButton::RESTART_BUTTON:
 					{
 						gameOverMenu.currentButton = GameOverMenu::GameOverMenuButton::EXIT_BUTTON;
-						UpdateGameOverMenuButtonsColor(gameOverMenu, GameOverMenu::GameOverMenuButton::RESTART_BUTTON);
 						break;
 					}
 					case GameOverMenu::GameOverMenuButton::EXIT_BUTTON:
 					{
 						gameOverMenu.currentButton = GameOverMenu::GameOverMenuButton::RESTART_BUTTON;
-						UpdateGameOverMenuButtonsColor(gameOverMenu, GameOverMenu::GameOverMenuButton::EXIT_BUTTON);
 						break;
 					}
 					default:
 						break;
 					}
 					gameOverMenu.isControlKeyPressed = true;
+
+					UpdateGameOverMenuButtonsColor(gameOverMenu);
 					PlayPressKeySound(game);
 				}
 			}
@@ -300,27 +272,11 @@ namespace SnakeGame {
 
 	void UpdateNewRecordMenuButtonsColor(NewRecordMenu& newRecordMenu)
 	{
-		switch (newRecordMenu.currentButton)
-		{
-		case NewRecordMenu::NewRecordMenuButton::YES:
-		{
-			newRecordMenu.yesText.setFillColor(sf::Color::Green);
-			newRecordMenu.noText.setFillColor(sf::Color::White);
-			break;
-		}
-		case NewRecordMenu::NewRecordMenuButton::NO:
-		{
-			newRecordMenu.noText.setFillColor(sf::Color::Green);
-			newRecordMenu.yesText.setFillColor(sf::Color::White);
-			break;
-		}
-		default:
-			break;
-		}
-	}
+		// Set white color to all buttons text
+		newRecordMenu.yesText.setFillColor(sf::Color::White);
+		newRecordMenu.noText.setFillColor(sf::Color::White);
 
-	void UpdateNewRecordMenuButtonsColor(NewRecordMenu& newRecordMenu, NewRecordMenu::NewRecordMenuButton lastButton)
-	{
+		// Set green color to the current button
 		switch (newRecordMenu.currentButton)
 		{
 		case NewRecordMenu::NewRecordMenuButton::YES:
@@ -331,22 +287,6 @@ namespace SnakeGame {
 		case NewRecordMenu::NewRecordMenuButton::NO:
 		{
 			newRecordMenu.noText.setFillColor(sf::Color::Green);
-			break;
-		}
-		default:
-			break;
-		}
-
-		switch (lastButton)
-		{
-		case NewRecordMenu::NewRecordMenuButton::YES:
-		{
-			newRecordMenu.yesText.setFillColor(sf::Color::White);
-			break;
-		}
-		case NewRecordMenu::NewRecordMenuButton::NO:
-		{
-			newRecordMenu.noText.setFillColor(sf::Color::White);
 			break;
 		}
 		default:
@@ -358,47 +298,51 @@ namespace SnakeGame {
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			if (!newRecordMenu.isControlKeyPressed) {
+
+				// Set current button
 				switch (newRecordMenu.currentButton)
 				{
 				case NewRecordMenu::NewRecordMenuButton::YES:
 				{
 					newRecordMenu.currentButton = NewRecordMenu::NewRecordMenuButton::NO;
-					UpdateNewRecordMenuButtonsColor(newRecordMenu, NewRecordMenu::NewRecordMenuButton::YES);
 					break;
 				}
 				case NewRecordMenu::NewRecordMenuButton::NO:
 				{
 					newRecordMenu.currentButton = NewRecordMenu::NewRecordMenuButton::YES;
-					UpdateNewRecordMenuButtonsColor(newRecordMenu, NewRecordMenu::NewRecordMenuButton::NO);
 					break;
 				}
 				default:
 					break;
 				}
 				newRecordMenu.isControlKeyPressed = true;
+
+				UpdateNewRecordMenuButtonsColor(newRecordMenu);
 				PlayPressKeySound(game);
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!newRecordMenu.isControlKeyPressed) {
+
+				// Set current button
 				switch (newRecordMenu.currentButton)
 				{
 				case NewRecordMenu::NewRecordMenuButton::YES:
 				{
 					newRecordMenu.currentButton = NewRecordMenu::NewRecordMenuButton::NO;
-					UpdateNewRecordMenuButtonsColor(newRecordMenu, NewRecordMenu::NewRecordMenuButton::YES);
 					break;
 				}
 				case NewRecordMenu::NewRecordMenuButton::NO:
 				{
 					newRecordMenu.currentButton = NewRecordMenu::NewRecordMenuButton::YES;
-					UpdateNewRecordMenuButtonsColor(newRecordMenu, NewRecordMenu::NewRecordMenuButton::NO);
 					break;
 				}
 				default:
 					break;
 				}
 				newRecordMenu.isControlKeyPressed = true;
+
+				UpdateNewRecordMenuButtonsColor(newRecordMenu);
 				PlayPressKeySound(game);
 			}
 		}

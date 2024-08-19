@@ -22,7 +22,7 @@ namespace SnakeGame {
 			DIFFICULTY_LEVEL_BUTTON,
 			LEADERBOARD_BUTTON,
 			SETTINGS_BUTTON,
-			EXIT_GAME_BUTTON
+			EXIT_GAME_BUTTON,
 		};
 
 		MainMenuButton currentButton = MainMenuButton::START_GAME_BUTTON;
@@ -45,7 +45,6 @@ namespace SnakeGame {
 
 	void InitMainMenu(MainMenu& mainMenu, const Game& game);
 	void UpdateMainMenuButtonsColor(MainMenu& mainMenu);
-	void UpdateMainMenuButtonsColor(MainMenu& mainMenu, MainMenu::MainMenuButton lastButton);
 	void UpdateMainMenu(MainMenu& mainMenu, Game& game, sf::Window& window);
 	void DrawMainMenu(MainMenu& mainMenu, const Game& game, sf::RenderWindow& window);
 }

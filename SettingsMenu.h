@@ -24,7 +24,6 @@ namespace SnakeGame {
 
 	void InitSettingsMenu(SettingsMenu& settingsMenu, const Game& game);
 	void UpdateSettingsMenuButtonsColor(SettingsMenu& settingsMenu);
-	void UpdateSettingsMenuButtonsColor(SettingsMenu& settingsMenu, SettingsMenu::SettingsMenuButton lastButton);
 	void UpdateSettingsMenu(SettingsMenu& settingsMenu, Game& game);
 	void DrawSettingsMenu(SettingsMenu& settingsMenu, const Game& game, sf::RenderWindow& window);
 }
