@@ -115,32 +115,7 @@ namespace SnakeGame {
 		{
 		case GameOverMenuState::GAME_OVER_MENU:
 		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-				if (!gameOverMenu.isControlKeyPressed) {
-
-					// Set current button
-					switch (gameOverMenu.currentButton)
-					{
-					case GameOverMenu::GameOverMenuButton::RESTART_BUTTON:
-					{
-						gameOverMenu.currentButton = GameOverMenu::GameOverMenuButton::EXIT_BUTTON;
-						break;
-					}
-					case GameOverMenu::GameOverMenuButton::EXIT_BUTTON:
-					{
-						gameOverMenu.currentButton = GameOverMenu::GameOverMenuButton::RESTART_BUTTON;
-						break;
-					}
-					default:
-						break;
-					}
-					gameOverMenu.isControlKeyPressed = true;
-
-					UpdateGameOverMenuButtonsColor(gameOverMenu);
-					PlayPressKeySound(game);
-				}
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 				if (!gameOverMenu.isControlKeyPressed) {
 
 					// Set current button
@@ -296,32 +271,7 @@ namespace SnakeGame {
 
 	void UpdateNewRecordMenu(NewRecordMenu& newRecordMenu, Game& game)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-			if (!newRecordMenu.isControlKeyPressed) {
-
-				// Set current button
-				switch (newRecordMenu.currentButton)
-				{
-				case NewRecordMenu::NewRecordMenuButton::YES:
-				{
-					newRecordMenu.currentButton = NewRecordMenu::NewRecordMenuButton::NO;
-					break;
-				}
-				case NewRecordMenu::NewRecordMenuButton::NO:
-				{
-					newRecordMenu.currentButton = NewRecordMenu::NewRecordMenuButton::YES;
-					break;
-				}
-				default:
-					break;
-				}
-				newRecordMenu.isControlKeyPressed = true;
-
-				UpdateNewRecordMenuButtonsColor(newRecordMenu);
-				PlayPressKeySound(game);
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!newRecordMenu.isControlKeyPressed) {
 
 				// Set current button

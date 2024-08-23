@@ -67,32 +67,7 @@ namespace SnakeGame {
 
 	void UpdatePauseMenu(PauseMenu& pauseMenu, Game& game)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-			if (!pauseMenu.isKeyPressed) {
-
-				// Set current button
-				switch (pauseMenu.currentButton)
-				{
-				case  PauseMenu::PauseMenuButton::CONTINUE_BUTTON:
-				{
-					pauseMenu.currentButton = PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON;
-					break;
-				}
-				case  PauseMenu::PauseMenuButton::EXIT_TO_MENU_BUTTON:
-				{
-					pauseMenu.currentButton = PauseMenu::PauseMenuButton::CONTINUE_BUTTON;
-					break;
-				}
-				default:
-					break;
-				}
-				pauseMenu.isKeyPressed = true;
-
-				UpdatePauseMenuButtonsColor(pauseMenu);
-				PlayPressKeySound(game);
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!pauseMenu.isKeyPressed) {
 
 				// Set current button

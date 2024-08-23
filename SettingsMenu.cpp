@@ -63,7 +63,7 @@ namespace SnakeGame {
 
 	void UpdateSettingsMenu(SettingsMenu& settingsMenu, Game& game)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			if (!settingsMenu.isControlKeyPressed) {
 
 				// Set current button
@@ -87,31 +87,6 @@ namespace SnakeGame {
 				UpdateSettingsMenuButtonsColor(settingsMenu);
 				PlayPressKeySound(game);
 			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-			if (!settingsMenu.isControlKeyPressed) {
-
-				// Set current button
-				switch (settingsMenu.currentButton)
-				{
-				case SettingsMenu::SettingsMenuButton::MUSIC_BUTTON:
-				{
-					settingsMenu.currentButton = SettingsMenu::SettingsMenuButton::SFX_BUTTON;
-					break;
-				}
-				case SettingsMenu::SettingsMenuButton::SFX_BUTTON:
-				{
-					settingsMenu.currentButton = SettingsMenu::SettingsMenuButton::MUSIC_BUTTON;
-					break;
-				}
-				default:
-					break;
-				}
-				settingsMenu.isControlKeyPressed = true;
-
-				UpdateSettingsMenuButtonsColor(settingsMenu);
-				PlayPressKeySound(game);
-			}       
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
 			if (!settingsMenu.isControlKeyPressed) {
